@@ -1,4 +1,4 @@
-# The standard NFT mint contract
+# 🤖The standard NFT mint contract
 
 ## License and prama
 ```js
@@ -84,6 +84,10 @@ function withdraw() public payable onlyOwner {
 }
 ```
 ---
-## If you want to create a web3 project.
-# [Better call Thomas !!](https://linktr.ee/evileye0666)
+---
+## DO you want a NFT Project?<br>
+## DO you want to more web3?<br>
+## DO you want to make more money?<br>
+## Remember...
+<h1><a href="https://linktr.ee/evileye0666" target="_blank">Better call Neal !!</a></h1>
 
