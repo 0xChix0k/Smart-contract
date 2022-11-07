@@ -1,6 +1,6 @@
-# 🤖The standard NFT mint contract
+<h1 align="center">🤖Standard NFT Mint Contract🤖<h1/>
 
-## License and prama
+## License and prama 
 ```js
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
@@ -26,11 +26,11 @@ modifier callerIsUser() {
 ```
 ---
 ## Constructor
-* **_metaURI** : baseURI > like ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/
-* **_name** : NFT name > like Board Ape yacht Club
-* **_symbol** : NFT symbol > loike BAYC
-* **_maxSupply** : your NFT maxSupply > like 10000 or 6666
-* **_price**: The Price for A NFT of Mint (You should input **wei**)
+* ### **_metaURI** : baseURI / e.g. _ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/_
+* ### **_name** : NFT name / e.g. _Board Ape yacht Club_
+* ### **_symbol** : NFT symbol / e.g. _BAYC_
+* ### **_maxSupply** : your NFT maxSupply / e.g. _10000 or 6666_
+* ### **_price**: The Price for a NFT (You should input **wei**)
 ```js
     constructor(
         string memory _metaURI,
@@ -48,7 +48,7 @@ modifier callerIsUser() {
 ## Mint function
 ### Require :
 ### 1. The TokenId can't exceed to maxSupply
-### 2. price * _quantity can't exceed to msg.value  
+### 2. Price * _quantity can't exceed to msg.value  
 ```js
     function NftMint(uint256 _quantity)
         external
@@ -84,10 +84,7 @@ function withdraw() public payable onlyOwner {
 }
 ```
 ---
----
-## DO you want a NFT Project?<br>
-## DO you want to more web3?<br>
-## DO you want to make more money?<br>
-## Remember...
-<h1><a href="https://linktr.ee/evileye0666" target="_blank">Better call Neal !!</a></h1>
-
+<div>
+  <h1 align="center">👇Click here and call Neal now !!!👇</h1>
+  <a href="https://linktr.ee/evileye0666"><img src="../../Images/betterCallNeal.png" alt=""></a>
+</div>
