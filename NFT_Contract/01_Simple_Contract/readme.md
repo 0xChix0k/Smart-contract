@@ -1,4 +1,4 @@
-<h1 align="center">🤖Standard mint🤖<h1/>
+<h1 align="center">🤖Standard mint🤖
 
 ## License and prama 
 ```js
