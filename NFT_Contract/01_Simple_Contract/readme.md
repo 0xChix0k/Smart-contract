@@ -1,4 +1,4 @@
-<h1 align="center">🤖Standard NFT Mint Contract🤖<h1/>
+<h1 align="center">🤖Standard NFT mint contract🤖<h1/>
 
 ## License and prama 
 ```js
@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 ```
 ## State variables and modifier
 ```js
-uint256 public immutable maxSupply; //The NFTs total supply
+uint256 public immutable maxSupply; //The NFTs max supply
 uint256 public immutable price;     //The price of a TokenId
 string baseURI;                     //The url for metadata json
 //Check Sender not a contract.
@@ -23,11 +23,6 @@ modifier callerIsUser() {
 }
 ```
 ## Constructor
-* _metaURI : baseURI > e.g. _ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/_
-* _name : NFT name > e.g. _Board Ape yacht Club_
-* _symbol : NFT symbol > e.g. _BAYC_
-* _maxSupply : your NFT maxSupply > e.g. _10000 or 6666_
-* _price: The Price for a NFT (_You should input wei_)
 ```js
     constructor(
         string memory _metaURI,
@@ -41,10 +36,13 @@ modifier callerIsUser() {
         price = _price;
     }
 ```
+* _metaURI : baseURI > e.g. _ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/_
+* _name : NFT name > e.g. _Board Ape yacht Club_
+* _symbol : NFT symbol > e.g. _BAYC_
+* _maxSupply : MaxSupply of The NFT > e.g. _10000 or 6666_
+* _price: The Price for a NFT (_You should input wei_)
+
 ## Mint function
-Require :
-1. The TokenId can't exceed to maxSupply
-2. Price * _quantity can't exceed to msg.value  
 ```js
     function NftMint(uint256 _quantity)
         external
@@ -62,13 +60,18 @@ Require :
         }
     }
 ```
-## Update metadata baseURI if you need.
+Require :
+1. The TokenId can't exceed to maxSupply
+2. Price * _quantity can't exceed to msg.value  
+
+## Set function by Owner 
+Update metadata baseURI.
 ```js
 function setBaseURI(string memory _newBaseURI) public onlyOwner {
     baseURI = _newBaseURI;
 }
 ```
-## Withdraw ETH from this contract
+Withdraw from contract
 ```js
 function withdraw() public payable onlyOwner {
     address sender = _msgSender();
