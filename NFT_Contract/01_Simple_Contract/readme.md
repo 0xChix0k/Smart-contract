@@ -1,4 +1,4 @@
-<h1 align="center">🤖Standard NFT mint contract🤖<h1/>
+<h1 align="center">🤖Standard mint🤖<h1/>
 
 ## License and prama 
 ```js

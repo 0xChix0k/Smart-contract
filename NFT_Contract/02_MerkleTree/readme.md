@@ -1,4 +1,4 @@
-<h1 align="center">🤖NFT mint contract by merkle tree whitelist🤖<h1/>
+<h1 align="center">🤖Merkle tree whitelist🤖<h1/>
 
 ## License and prama 
 ```js
