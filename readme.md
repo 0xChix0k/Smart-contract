@@ -1,10 +1,10 @@
-<div style='margin: auto;'>
+<div style='margin: auto'>
   <a href="https://linktr.ee/evileye0666" target="_blank"><img src="./Images/betterCallNeal.jpg" alt=""></a>
 </div>
 <br/><br/>
 <h1>Solidity Smart Contract</h1>
-<h3>The examples for smart contract in <code>solidity</code> by Neal.</h3>
-<h3>Welcome copy thier to deploy your project.</h3>
+<h4>The examples for smart contract in <code>solidity</code> by Neal.</h4>
+<h4>Welcome copy thier to deploy your project.</h4>
 <br/>
 <h1>Category:</h1>
 <ul>
