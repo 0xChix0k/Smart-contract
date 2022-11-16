@@ -12,7 +12,7 @@ contract Simple is ERC721Enumerable, Ownable, ReentrancyGuard {
     string baseURI;
     //only user
     modifier callerIsUser() {
-        require(!Address.isContract(_msgSender()), "Contract is unallowed.");
+        require(tx.origin == msg.sender), "Contract is unallowed.");
         _;
     }
 

@@ -83,5 +83,5 @@ function withdraw() public payable onlyOwner {
 ---
 <div>
   <h1 align="center">👇Click here and call Neal now !!!👇</h1>
-  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="../../Images/betterCallNeal.png" alt=""></a>
+  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="../../Images/betterCallNeal.jpg" alt=""></a>
 </div>

@@ -21,7 +21,7 @@ contract Project is ERC721Enumerable, Ownable, ReentrancyGuard {
   string baseURI;
   //only user
   modifier callerIsUser() {
-    require(!Address.isContract(_msgSender()), "You can't minting from Contract");
+    require(tx.origin == msg.sender), "You can't minting from Contract");
     _;
   }
 
