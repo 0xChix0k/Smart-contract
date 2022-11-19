@@ -8,6 +8,6 @@
 <br/>
 <h1>Category:</h1>
 <ul>
-  <li><h3><a href="https://github.com/Evileye0666/Smart-contract/tree/main/NFT_Contract/01_Standard_mint" target='_blank'>Standard Mint</a></h3></li>
+  <li><h3><a href="https://github.com/Evileye0666/Smart-contract/tree/main/NFT_Contract/01_Standard_Mint" target='_blank'>Standard Mint</a></h3></li>
   <li><h3><a href="https://github.com/Evileye0666/Smart-contract/tree/main/NFT_Contract/02_MerkleTree" target='_blank'>MerkleTree WhiteList Mint</a></h3></li>  
 </ul>
