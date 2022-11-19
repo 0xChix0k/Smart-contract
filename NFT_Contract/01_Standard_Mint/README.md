@@ -1,4 +1,7 @@
-<h1 align="center">🤖Standard mint🤖
+<div align="center">
+  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="../../Images/Neal.png" width="100px" alt=""></a>
+  <h1 align="center">🤖Standard mint🤖
+</div>
 
 ## License and prama 
 ```js
@@ -80,8 +83,3 @@ function withdraw() public payable onlyOwner {
     Address.sendValue(payable(sender), amount);
 }
 ```
----
-<div>
-  <h1 align="center">👇Click here and call Neal now !!!👇</h1>
-  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="../../Images/betterCallNeal.jpg" alt=""></a>
-</div>
