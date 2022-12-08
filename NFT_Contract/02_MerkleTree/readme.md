@@ -1,27 +1,32 @@
 <div align="center">
-  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="../../Images/Neal.png" width="100px" alt=""></a>
-  <h1 align="center">🤖Merkle tree whitelist🤖
+  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="https://user-images.githubusercontent.com/6915577/206463704-a359e72a-350a-493e-ac76-8bf0932068f0.png" width="100px" alt=""></a>
+  <h1>Merkle tree whitelist</h1>
 </div>
 
-## License and prama 
+## License and prama
+
 ```js
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 ```
+
 ## Import interface and libary from [@openzenppelin](https://github.com/OpenZeppelin/openzeppelin-contracts)
+
 ```js
 import '@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol';
 import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/cryptography/MerkleProof.sol';
 ```
+
 ## State variables and modifier
+
 ```js
 mapping(address => bool) public isMinted; //Address minted or not
 bytes32 public immutable root;            //merkle tree root
 uint256 public immutable maxSuppply;      //The NFTs Max supply
 uint256 public immutable preSaleMax;      //Max supply for Pre sale
-uint256 public immutable preSaleMaxMint;  //Max tokens to mint for a wallet in pre sale 
+uint256 public immutable preSaleMaxMint;  //Max tokens to mint for a wallet in pre sale
 uint256 public price;                    //The price of a TokenId
 uint256 public mintTime;                 //The time to mint
 bool public preMintOpen;                 //The target for pre sale
@@ -33,7 +38,9 @@ modifier callerIsUser() {
     _;
 }
 ```
+
 ## Constructor
+
 ```js
 constructor(
   string memory _metaURI,
@@ -57,17 +64,19 @@ constructor(
 }
 
 ```
-* _metaURI : baseURI > e.g. _ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/_
-* _name : NFT name > e.g. _Board Ape yacht Club_
-* _symbol : NFT symbol > e.g. _BAYC_
-* _maxSupply : MaxSupply of The NFT > e.g. _10000 or 6666_
-* _preSaleMax : MaxSupply of The NFT in presale > e.g. _3333_
-* _preSaleMaxMint : A wallet max mint for presale > e.g. _3_
-* _price: The Price for a NFT (_You should input wei_)
-* _mintTime : The time to mint > e.g. _1672416000_ (timestamp)
-* _merkleRoot : The root of merkle tree
+
+- _metaURI : baseURI > e.g. \_ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/_
+- _name : NFT name > e.g. \_Board Ape yacht Club_
+- _symbol : NFT symbol > e.g. \_BAYC_
+- _maxSupply : MaxSupply of The NFT > e.g. \_10000 or 6666_
+- _preSaleMax : MaxSupply of The NFT in presale > e.g. \_3333_
+- _preSaleMaxMint : A wallet max mint for presale > e.g. \_3_
+- _price: The Price for a NFT (\_You should input wei_)
+- _mintTime : The time to mint > e.g. \_1672416000_ (timestamp)
+- \_merkleRoot : The root of merkle tree
 
 ## Premint function
+
 ```js
 function preMint(uint256 _quantity, bytes32[] calldata proof) external payable nonReentrant callerIsUser {
   address sender = _msgSender();
@@ -81,14 +90,17 @@ function preMint(uint256 _quantity, bytes32[] calldata proof) external payable n
   _minNFT(sender, _quantity);
 }
 ```
+
 Require :
+
 1. preMintOpen == true.
 2. MerkleProof.verify == true.
 3. isMinted[sender] ==false. (Not mint yet.)
-4. _quantity can't exceed to preSaleMaxMint.
-5. totalSupply() + _quantity can't exceed to preSaleMax 
+4. \_quantity can't exceed to preSaleMaxMint.
+5. totalSupply() + \_quantity can't exceed to preSaleMax
 
 ## Pubmint function
+
 ```js
 function pubMint(uint256 _quantity) external payable callerIsUser nonReentrant {
   require(pubMintOpen, 'Public mint not open yet.');
@@ -96,11 +108,14 @@ function pubMint(uint256 _quantity) external payable callerIsUser nonReentrant {
   _minNFT(_msgSender(), _quantity);
 }
 ```
-Require :
-1. pubMintOpen == true.
-2. totalSupply() + _quantity can't exceed to preSaleMax 
 
-## _minNFT function (internal)
+Require :
+
+1. pubMintOpen == true.
+2. totalSupply() + \_quantity can't exceed to preSaleMax
+
+## \_minNFT function (internal)
+
 ```js
 function _minNFT(address _addr, uint256 _quantity) internal {
   uint256 tokenId = totalSupply();
@@ -111,41 +126,54 @@ function _minNFT(address _addr, uint256 _quantity) internal {
   }
 }
 ```
-Require :
-1. Now time >= mintTime.
-2. price * _quantity <= msg.value.
 
-## Set function by Owner 
+Require :
+
+1. Now time >= mintTime.
+2. price \* \_quantity <= msg.value.
+
+## Set function by Owner
+
 ```js
 function setMintTime(uint256 _mintTime) public onlyOwner {
   mintTime = _mintTime;
 }
 ```
+
 Set new price(ETH)
+
 ```js
 function setMintPrice(uint256 _price) public onlyOwner {
   price = _price;
 }
 ```
+
 Update metadata baseURI.
+
 ```js
 function setBaseURI(string memory _newBaseURI) public onlyOwner {
   baseURI = _newBaseURI;
 }
 ```
+
 Set pre sale status
+
 ```js
 function preMintTarget() public onlyOwner {
   preMintOpen = !preMintOpen;
 }
 ```
+
 Set pub sale status
+
 ```js
 function pubMintTarget() public onlyOwner {
   pubMintOpen = !pubMintOpen;
 }
 ```
+
 Withdraw from contract
+
 ```js
 function withdraw() public payable onlyOwner {
   uint256 amount = address(this).balance;

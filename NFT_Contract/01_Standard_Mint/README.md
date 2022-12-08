@@ -1,20 +1,25 @@
 <div align="center">
-  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="../../Images/Neal.png" width="100px" alt=""></a>
-  <h1 align="center">🤖Standard mint🤖
+  <a href="https://linktr.ee/evileye0666" target="_blank"><img src="https://user-images.githubusercontent.com/6915577/206463704-a359e72a-350a-493e-ac76-8bf0932068f0.png" width="100px" alt=""></a>
+  <h1>Standard mint</h1>
 </div>
 
-## License and prama 
+## License and prama
+
 ```js
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 ```
+
 ## Import interface and libary from [@openzenppelin](https://github.com/OpenZeppelin/openzeppelin-contracts)
+
 ```js
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import '@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol';
+import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
+import '@openzeppelin/contracts/access/Ownable.sol';
 ```
+
 ## State variables and modifier
+
 ```js
 uint256 public immutable maxSupply; //The NFTs max supply
 uint256 public immutable price;     //The price of a TokenId
@@ -25,7 +30,9 @@ modifier callerIsUser() {
      _;
 }
 ```
+
 ## Constructor
+
 ```js
     constructor(
         string memory _metaURI,
@@ -39,13 +46,15 @@ modifier callerIsUser() {
         price = _price;
     }
 ```
-* _metaURI : baseURI > e.g. _ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/_
-* _name : NFT name > e.g. _Board Ape yacht Club_
-* _symbol : NFT symbol > e.g. _BAYC_
-* _maxSupply : MaxSupply of The NFT > e.g. _10000 or 6666_
-* _price: The Price for a NFT (_You should input wei_)
+
+- _metaURI : baseURI > e.g. \_ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/_
+- _name : NFT name > e.g. \_Board Ape yacht Club_
+- _symbol : NFT symbol > e.g. \_BAYC_
+- _maxSupply : MaxSupply of The NFT > e.g. \_10000 or 6666_
+- _price: The Price for a NFT (\_You should input wei_)
 
 ## Mint function
+
 ```js
     function NftMint(uint256 _quantity)
         external
@@ -63,18 +72,24 @@ modifier callerIsUser() {
         }
     }
 ```
-Require :
-1. The TokenId can't exceed to maxSupply
-2. Price * _quantity can't exceed to msg.value  
 
-## Set function by Owner 
+Require :
+
+1. The TokenId can't exceed to maxSupply
+2. Price \* \_quantity can't exceed to msg.value
+
+## Set function by Owner
+
 Update metadata baseURI.
+
 ```js
 function setBaseURI(string memory _newBaseURI) public onlyOwner {
     baseURI = _newBaseURI;
 }
 ```
+
 Withdraw from contract
+
 ```js
 function withdraw() public payable onlyOwner {
     address sender = _msgSender();
