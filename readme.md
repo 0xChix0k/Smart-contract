@@ -1,4 +1,4 @@
-<div style='margin: auto'>
+<div align="center">
   <a href="https://linktr.ee/evileye0666" target="_blank"><img src="./Images/betterCallNeal.jpg" alt=""></a>
 </div>
 <br/><br/>
